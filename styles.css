@@ -21,26 +21,25 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Molle&family=Montserrat&display=swap");
+
+:root{
+	--yellow: #F6D64A;
+	--teal: #55BCD5;
+	--purple: #9B26B0;
+	--blue: #499BD2;
+	--darkgray: #222222;
+	--lightgray: #EAEAEA;
+	--white: #FFFFFF;
+	--black: #000000;
+	font-size: 16px;
+	font-family: Molle, Monteserrat;
+	box-sizing: border-box;
+
 body {
 	line-height: 1;
+	color: var(--darkgray);
 }
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-/* ---------- BEGIN CUSTOM STYLES ---------- */
 
 #skipLink:focus{
 	top: 1em;
@@ -54,25 +53,25 @@ table {
 }
 
 a{
-	color: #0a58ff;
+	color: var(--black);
 }
 
 a:focus{
-	border: 2px solid #0a58ff;
+	border: 2px solid var(--teal);
 }
 
 a:hover{
 	color: white;
-	background-color: #0a58ff;
+	background-color: var(--blue);
 }
 
 header{
 	padding: 2em 0 1em 0;
-	border-bottom: 5px solid #0a58ff;
+	border-bottom: 5px solid var(--teal);
 }
 
 h1, h2, h3{
-	font-family: sans-serif;
+	font-family: Molle;
 	font-weight: bold;
 	line-height: 1.2;
 	text-align: center;
@@ -83,16 +82,8 @@ h1{
 	padding: 0.5em;
 }
 
-.sr-only{
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	white-space: nowrap; /* added line */
-	border: 0; 
+h4, p, q, nav, small, button, form{
+	font-family: Montserrat;
 }
 
 nav ul{
@@ -111,20 +102,9 @@ nav a{
 	display: block;
 	padding: 1em;
 	text-decoration: none;
-	font-family: sans-serif;
 	font-size: 1.2em;
 	font-weight: bold;
 	text-align: center;
-}
-
-#particleBackground{
-  	width: 100%;
-  	height: 300px;
-  	background-image: url("https://www.public.asu.edu/~jlbarn11/teaching/cool-background.svg");
-  	background-color: rgba(77, 77, 77, 0.2);
-  	background-repeat: no-repeat;
-  	background-position: right;
-	border-bottom: 5px solid #0a58ff;
 }
 
 main{
@@ -159,7 +139,7 @@ form{
 	max-width: 350px;
 	margin:  2em auto;
 	padding:  0.75em;
-	border: 2px solid #777;
+	border: 2px solid var(--lightgray);
 	border-radius: 0.2em;
 }
 
@@ -169,7 +149,7 @@ input, label, textarea{
 }
 
 input, textarea, select{
-	outline: 1px solid #222;
+	outline: 1px solid var(--darkgray);
 	border: none;
 	border-radius: 0.2em;
 }
@@ -178,8 +158,12 @@ label{
 	font-size: 1.1em;
 }
 
+img {
+	border-radius: 8px;
+  }
+
 .required{
-	color: #c71819;
+	color: var(--purple);
 }
 
 input{
@@ -201,7 +185,7 @@ fieldset{
 	margin: 0.5em auto;
 	padding-bottom: 0.5em;
 	width: 94%;
-	border: 1px solid #222;
+	border: 1px solid var(--darkgray);
 	border-radius: 0.2em;
 	display: grid;
 	grid-template-columns: 30px 1fr 30px 1fr;
@@ -252,18 +236,17 @@ input[type="submit"]{
 	border: none;
 	outline: none;
 	border-radius: 0.2em;
-	background-color: #0a58ff;
-	color: white;
+	background-color: var(--blue);
+	color: var(--white);
 }
 
 input[type="submit"]:hover, input[type="submit"]:focus{
 	background-color: #063599;
-	filter: drop-shadow(8px 8px 4px #777);
+	filter: drop-shadow(8px 8px 4px var(--lightgray));
 }
 
 footer{
 	padding: 1em;
-	border-top: 5px solid #0a58ff;
-	font-family: sans-serif;
+	border-top: 5px solid var(--blue);
 	text-align: center;
 }
