@@ -178,7 +178,7 @@ input:focus, select:focus, textarea:focus{
 }
 
 input:error, select:error, textarea:error{
-	background-color: #c71819;
+	background-color: var(--purple);
 }
 
 fieldset{
