@@ -42,18 +42,6 @@ table {
 
 /* ---------- BEGIN CUSTOM STYLES ---------- */
 
-*{
-	font-family: sans-serif;
-	line-height: 1.35;
-}
-
-#skipLink{
-	position: absolute;
-	left: -999px;
-	height:  0;
-	width:  0;
-}
-
 #skipLink:focus{
 	top: 1em;
 	left: 1em;
@@ -249,10 +237,11 @@ textarea{
 }
 
 input[type="radio"]{
-	margin-top: 0.4em;
+	margin-top: 0.2em;
 	outline: none;
 	border: 1px solid #222;
 	border-radius: 25%;
+	margin-right: 0.5em;
 }
 
 input[type="submit"]{
