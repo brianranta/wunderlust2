@@ -229,7 +229,6 @@ header img{
 	#plan div{
 		margin: 1rem;
 		display:inline-flex;
-		border: 4px var(--white);
 	}
 	#about div{
 		display:inline-flex;
