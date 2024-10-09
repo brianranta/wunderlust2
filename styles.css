@@ -1,5 +1,6 @@
 /* Author: Brian Ranta */
 
+/*css reset*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,8 +22,10 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+/*import fonts*/
 @import url("https://fonts.googleapis.com/css2?family=Molle&family=Montserrat&display=swap");
 
+/*root to declare color variables*/
 :root{
 	--yellow: #F6D64A;
 	--teal: #55BCD5;
@@ -35,10 +38,20 @@ time, mark, audio, video {
 	font-size: 16px;
 	font-family: Molle, Monteserrat;
 	box-sizing: border-box;
+}
 
 body {
-	line-height: 1;
+	line-height: 1rem;
 	color: var(--darkgray);
+}
+/*skiplink css*/
+#skip{
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }
 
 #skipLink:focus{
@@ -51,23 +64,186 @@ body {
 	height: 1.5em;
 	line-height: 1.3em;
 }
-
-a{
-	color: var(--black);
-}
-
-a:focus{
-	border: 2px solid var(--teal);
-}
-
-a:hover{
-	color: white;
-	background-color: var(--blue);
-}
-
+/*add color appropiate gradient to header*/
 header{
-	padding: 2em 0 1em 0;
-	border-bottom: 5px solid var(--teal);
+	padding: 1rem;
+	background-image: linear-gradient(var(--teal), var(--white));
+}
+/*insert logo*/
+header img{
+	max-width: 200px;
+  	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	gap: .5rem;
+	align-items: left;
+}
+/*for smaller screens and mobile*/
+@media only screen and (max-width: 600px) {
+	label[for=toggle]{
+		display: inline-block;
+		background-color: var(--white);
+		color: var(--black);
+		max-width: 43%;
+		margin-left: 1rem;
+		padding: 2rem 0;
+		text-align: center;
+	}
+	label[for=toggle]:hover{
+		background-color: var(--yellow);
+	}
+	#menu-toggle {
+		display: block;
+		position: relative;
+		top: 50px;
+		left: 50px;  
+		z-index: 1;  
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		 -ms-user-select: none;
+			 user-select: none;
+	  }
+	  
+	  #menu-toggle a {
+		text-decoration: none;
+		color: var(--black);
+		-webkit-transition: color 0.3s ease;
+		-o-transition: color 0.3s ease;
+		transition: color 0.3s ease;
+	  }
+	  
+	  /* The hamburger button hidden inside an input element */
+	  #menu-toggle input {
+		display: block;
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		top: -7px;
+		left: -5px;  
+		padding: 0;
+		cursor: pointer;  
+		opacity: 0; /* hide this */
+		z-index: 2; /* and place it over the hamburger */  
+		-webkit-touch-callout: none;
+	  }
+	  
+	  #menu-toggle label {
+		position: relative;
+		display: grid;
+	  }
+	  
+	  #menu-toggle label div:first-child {
+		-webkit-transform-origin: 0% 100%;
+			-ms-transform-origin: 0% 100%;
+				transform-origin: 0% 100%;
+	  }
+	  
+	  #menu-toggle label div:nth-child(2) {
+		  -webkit-transform-origin: 0% 0%;
+			-ms-transform-origin: 0% 0%;
+				transform-origin: 0% 0%;
+	  }
+	  
+	  
+	  /*
+	   * Use absolute positioning to place the menu off-screen
+	   */
+	#menu {
+		position: absolute;
+		max-width: 43%;
+		margin-left: 1rem;
+		padding: 2rem 0;
+		text-align: center;
+		background: var(--teal);
+		height: 20vh;
+		list-style-type: none;
+		/* Hide the menu off-screen to the left */
+		left: -100%;
+		-webkit-transition: left 0.3s ease;
+		-o-transition: left 0.3s ease;
+		transition: left 0.3s ease; 
+	}
+	  
+	#menu ul {
+		padding: 10px 0;
+		font-size: 22px;
+	}
+	  
+	  /*
+	   * Slide the menu in from left when the input is checked
+	   */
+	#menu-toggle input:checked ~ ul {
+		left: 0;
+	  }
+	  /* hide regular nav options for smaller screen for menu button */
+	ul li{
+		display: none;
+	}
+	#plan div{
+		margin: 1rem;
+		display: grid;
+		align-items: center;
+		justify-content: center;
+	}
+	#about div{
+		display:grid;
+		align-items: center;
+		justify-content: center;
+		margin: 1rem;
+	}
+	#testimonials div{
+	display:block;
+	}
+}
+/*for anything larger than mobile*/
+@media only screen and (min-width: 601px) {
+	#toggle {
+		display: none;
+		flex-direction: column;
+		width: 100%;
+		padding: 2rem 0;
+	}
+	label[for=toggle]{
+		display: none;
+	}
+	#menu-toggle a{
+		margin: 1rem;
+		background-color: var(--white);
+		color: var(--black);
+	}
+	#menu-toggle a:hover{
+		background-color: var(--yellow);
+	}
+	a:hover{
+		background-color: var(--white);
+		color: var(--black);
+		background-color: var(--yellow);
+	}
+	
+	ul{
+		display: flex;
+	}
+	ul li{
+		display: inline-block;
+	}
+	#plan div{
+		margin: 1rem;
+		display:inline-flex;
+		border: 4px var(--white);
+	}
+	#about div{
+		display:inline-flex;
+		align-items: center;
+		margin: 1rem;
+	}
+	#testimonials div{
+		display:flex;
+	}
+	
+}
+
+.logo{
+	padding: 0.5rem;
 }
 
 h1, h2, h3{
@@ -76,12 +252,47 @@ h1, h2, h3{
 	line-height: 1.2;
 	text-align: center;
 }
+/*only show to screen readings*/
+.sr-only {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+  }
+
+.intro:after{
+	content: "";
+  	display: table;
+  	clear: both;
+}
+/*image grid for photos of beach*/
+#img-grid{
+	float: left;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: auto;
+}
+
+#intro{
+	padding: 5%;
+	Display: flex;
+	flex-wrap: wrap;
+}
+
+#toggle {
+	display: none;
+	flex-direction: column;
+	width: 100%;
+	padding: 2rem 0;
+}
 
 h1{
 	font-size: 2em;
 	padding: 0.5em;
 }
-
+/*desginating font family for certain classes*/
 h4, p, q, nav, small, button, form{
 	font-family: Montserrat;
 }
@@ -94,10 +305,6 @@ nav ul{
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-ul li{
-	display: inline-block;
-}
-
 nav a{
 	display: block;
 	padding: 1em;
@@ -107,11 +314,48 @@ nav a{
 	text-align: center;
 }
 
-main{
-	width: calc(100% - 2em);
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 1em;
+/*appropriate background color added for about section*/
+#about{
+  	gap: .5rem;
+	background-color: var(--blue);
+	align-items: center;
+}
+#about h3{
+	font-size: 1.75rem;
+	margin-top: 2rem;
+	padding: 2rem;
+}
+
+#about h4, #about p{
+	grid-column: 1 / -1;
+  	padding:0;
+}
+#about img{
+	width: 50%
+}
+#about p{
+	align-items: center;
+}
+
+#about section{
+	margin-right: 2rem;
+	padding: 1rem;
+	align-items: center;
+	justify-content: center;
+}
+/*testimonials section*/
+#testimonials section{
+	display: block;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-radius: 0.25rem;
+    padding-bottom: 1rem;
+}
+
+#testimonials img{
+	width: 40%
+}
+#testimonials p{
+	text-align: justify;
 }
 
 h2{
@@ -125,21 +369,38 @@ p{
 	margin:  0 auto;
 }
 
-section{
-	margin: 1em 0;
+/*background color and visual adjustments for plan section*/
+#plan{
+	align-items: center;
+	background-color: var(--yellow);
 }
 
+#plan section{
+	width: 20%;
+	margin: 1rem;
+	text-align: center;
+	align-items: center;
+	font-size: 1.2rem;
+	background-color: var(--teal);
+	padding: 1rem;
+	border-radius: 0.2em;
+	border: 4px var(--white);
+}
+#plan h3{
+	margin: 1rem;
+	padding: 2rem;
+}
 h3{
 	font-size: 1.35em;
 	margin: 0.5em 0;
 }
 
+/*css for fprm and appropriate purple color used*/
 form{
 	width: 90%;
 	max-width: 350px;
 	margin:  2em auto;
 	padding:  0.75em;
-	border: 2px solid var(--lightgray);
 	border-radius: 0.2em;
 }
 
@@ -149,7 +410,7 @@ input, label, textarea{
 }
 
 input, textarea, select{
-	outline: 1px solid var(--darkgray);
+	outline: 1px solid var(--purple);
 	border: none;
 	border-radius: 0.2em;
 }
@@ -159,8 +420,15 @@ label{
 }
 
 img {
-	border-radius: 8px;
-  }
+	display: block;
+	height: auto;
+	max-width: 100%;
+	margin: 8px;
+}
+
+svg {
+	background-color: var(--teal);
+}
 
 .required{
 	color: var(--purple);
@@ -170,10 +438,11 @@ input{
 	width: 90%;
 	margin: 0.25em auto 0.5em auto;
 	padding: 0.5em;
+	border: var(--purple);
 }
 
 input:focus, select:focus, textarea:focus{
-	border: 2px inset #0a58ff;
+	border: 2px inset var(--purple);
 	box-shadow: 0 0 0 0.09em currentColor;
 }
 
@@ -185,7 +454,7 @@ fieldset{
 	margin: 0.5em auto;
 	padding-bottom: 0.5em;
 	width: 94%;
-	border: 1px solid var(--darkgray);
+	border: 1px solid var(--purple);
 	border-radius: 0.2em;
 	display: grid;
 	grid-template-columns: 30px 1fr 30px 1fr;
@@ -220,12 +489,26 @@ textarea{
 	padding: 0.5em;
 }
 
+#form-required{
+	font-family: Monteserrat;
+}
+
+span{
+	font-size: 75%;
+	font-family: Monteserrat;
+	color: var(--black);
+	font-style: oblique;
+}
+
 input[type="radio"]{
+	display: inline-block;
+	position: relative;
+	vertical-align: center;
 	margin-top: 0.2em;
 	outline: none;
-	border: 1px solid #222;
 	border-radius: 25%;
 	margin-right: 0.5em;
+	accent-color: var(--purple);
 }
 
 input[type="submit"]{
@@ -236,18 +519,28 @@ input[type="submit"]{
 	border: none;
 	outline: none;
 	border-radius: 0.2em;
-	background-color: var(--blue);
+	background-color: var(--purple);
 	color: var(--white);
 }
-
+/* submit button on hover or focus have dropshadow*/
 input[type="submit"]:hover, input[type="submit"]:focus{
-	background-color: #063599;
 	filter: drop-shadow(8px 8px 4px var(--lightgray));
 }
-
+/* footer section with appropriate font*/
 footer{
 	padding: 1em;
-	border-top: 5px solid var(--blue);
+	border-top: 5px solid var(--lightgray);
 	text-align: center;
+	background-color: var(--lightgray);
+	a{
+		float: right;
+		font-family: Monteserrat;
+		color: var(--black);
+		background-color: var(--lightgray);
+		margin-right: 1rem;
+	}
+	p{
+		background-color: var(--lightgray);
+		float:left;
 	}
 }
